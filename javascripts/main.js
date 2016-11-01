@@ -1,7 +1,12 @@
 "use strict";
 
 $(document).ready(function(){
-  console.log("jquery is ready");
+  FbAPI.firebaseCredentials().then(function(keys){
+    console.log("keys", keys);
+  });
+
+
+
 });
 
 
