@@ -13,7 +13,6 @@ var FbAPI = (function(oldFirebase){
           response[key].id = key;
           items.push(response[key]);
         });
-
         resolve(items);
       }, (error) => {
         reject(error);
