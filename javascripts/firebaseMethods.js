@@ -2,11 +2,11 @@
 
 var FbAPI = (function(oldFirebase){
 
-  oldFirebase.getTodos = function(apiKeys){
+  oldFirebase.getTodos = function(apiKeys, uid){
     return new Promise((resolve, reject) => {
       $.ajax({
         method:  'GET',
-        url:`${apiKeys.databaseURL}/items.json`
+        url:`${apiKeys.databaseURL}/items.json?orderBy="uid"&equalTo="${uid}"`
       }).then((response) => {
         let items = [];
         Object.keys(response).forEach(function(key){
@@ -23,7 +23,7 @@ var FbAPI = (function(oldFirebase){
  oldFirebase.addTodo = function(apiKeys, newItem){
     return new Promise((resolve, reject) => {
       $.ajax({
-        method:  'POST', 
+        method:  'POST',
         url:`${apiKeys.databaseURL}/items.json`,
         data: JSON.stringify(newItem),
         dataType: 'json'
@@ -40,7 +40,7 @@ var FbAPI = (function(oldFirebase){
 oldFirebase.deleteTodo = function(apiKeys, itemId){
     return new Promise((resolve, reject) => {
       $.ajax({
-        method:  'DELETE', 
+        method:  'DELETE',
         url:`${apiKeys.databaseURL}/items/${itemId}.json`
       }).then((response) => {
         console.log("response from Delete", response);
@@ -52,9 +52,21 @@ oldFirebase.deleteTodo = function(apiKeys, itemId){
   };
 
 
-
-
-
+ oldFirebase.editTodo = function(apiKeys, itemId, editedItem){
+    return new Promise((resolve, reject) => {
+      $.ajax({
+        method:  'PUT',
+        url:`${apiKeys.databaseURL}/items/${itemId}.json`,
+        data: JSON.stringify(editedItem),
+        dataType: 'json'
+      }).then((response) => {
+        console.log("response from POST", response);
+        resolve(response);
+      }, (error) => {
+        reject(error);
+      });
+    });
+  };
 
 
 

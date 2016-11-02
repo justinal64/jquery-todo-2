@@ -1,8 +1,8 @@
 'use strict';
 
-var FbAPI = (function(){
+var FbAPI = (function() {
   return {
-    firebaseCredentials : function(){
+    firebaseCredentials : function() {
       return new Promise((resolve, reject) => {
         $.ajax({
           method: 'GET',
