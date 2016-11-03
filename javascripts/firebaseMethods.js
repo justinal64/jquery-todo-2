@@ -21,6 +21,8 @@ var FbAPI = (function(oldFirebase){
   };
 
  oldFirebase.addTodo = function(apiKeys, newItem){
+    console.log("apiKeys", apiKeys);
+    console.log("newItem", newItem);
     return new Promise((resolve, reject) => {
       $.ajax({
         method:  'POST',
