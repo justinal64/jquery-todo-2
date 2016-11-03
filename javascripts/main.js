@@ -152,7 +152,6 @@ $(document).ready(function(){
             $('#todo-container').removeClass("hide");
         });
     });
-
 });
 
 
@@ -163,5 +162,8 @@ $('#logout-container').on("click", "#logoutButton", function() {
     $('#todo-container').addClass("hide");
     $('#incomplete-tasks').html("");
     $('#completed-tasks').html("");
+    $('#inputUsername').val("");
+    $('#inputEmail').val("");
+    $('#inputPassword').val("");
 });
 
