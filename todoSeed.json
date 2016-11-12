@@ -15,5 +15,18 @@
     "isCompleted": false,
     "uid":"dDCNDK10yvRCUeXOgMGsl2z60Qh2"
     }
+  },
+  "users": {
+    "user1": {
+      "username": "a",
+      "uid": "XDcBMrlDAycrDipxqKHsJIRvrk12"
+
+    },
+    "user2": {
+      "username": "b",
+      "uid": "dDCNDK10yvRCUeXOgMGsl2z60Qh2"
+
+    }
+
   }
 }
